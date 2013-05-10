@@ -150,7 +150,7 @@ window.app = {
             });
 
             // update HTML document title
-            document.title = $("h1.title").html();
+            document.title = $("h1.title").html().replace('<br>', '');
 
             var tags = $(".tags div")[0].innerHTML.replace('<br>', '');
 
@@ -166,7 +166,7 @@ window.app = {
                 data = newData;
                 $.post(document.location.href, {
                     content: $(".content.editable").html(),
-                    title: $("h1.title").html(),
+                    title: $("h1.title").html().replace('<br>', ''),
                     tags: tags
                 })
                     .success(saved)

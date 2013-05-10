@@ -25,17 +25,17 @@ html
                       a(href="/versions") Versions-Historie
                   li.dropdown
                       a.dropdown-toggle(href="#", data-toggle="dropdown") 
-                          | Änderungen
+                          | Letzte Änderungen
                           b.caret
             
                       ul.dropdown-menu
                     
-                          li.nav-header Letzte Seiten
-                          each page in latest
-                              li
-                                  a(href=page.path)= page.title
+                          //-li.nav-header Letzte Seiten
+                          //-each page in latest
+                          //-    li
+                          //-        a(href=page.path)= page.title
 
-                          li.nav-header Letzte Änderungen
+                          //-li.nav-header Letzte Änderungen
                           each page in recentChanges
                               li
                                   a(href=page.path)= page.title

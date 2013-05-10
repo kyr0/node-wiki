@@ -9,6 +9,10 @@ a {
     color: #ffffff !important;
 }
 
+.container .btn-group  a.btn, .container .btn-group a.btn-primary {
+    color: #000 !important;
+}
+
 .tags {
     margin: 1em 0;
     color: darkgreen;
