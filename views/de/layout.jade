@@ -21,11 +21,9 @@ html
                       a(href="/pages") Alle Seiten
                   li
                       a(href="/tags") Alle Tags
-                  li
-                      a(href="/versions") Versions-Historie
                   li.dropdown
                       a.dropdown-toggle(href="#", data-toggle="dropdown") 
-                          | Letzte Änderungen
+                          | Neuste Inhalte
                           b.caret
             
                       ul.dropdown-menu
@@ -50,6 +48,7 @@ html
                             li: a#move-page(href="#") Diese Seite verschieben
                             li: a#delete-page(href="#") Diese Seite löschen
                             li: a#edit-navigation(href="#") Navigation bearbeiten
+                            //-li: a(href="/versions") Globale Versions-Historie
 
                 form.navbar-search.pull-right(action="/search", method="GET")
                     input.search-query(type="text", placeholder="Suchen...", name="q", id="q")

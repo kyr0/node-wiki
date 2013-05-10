@@ -1,7 +1,8 @@
 extends layout
 
 block content
-    h1 Letzte Seiten-Änderungen
+    h1 Änderungs-Historie
+    div.versionsDesc Zeigt die letzten 100 Änderungen bestehender Seiten. Gelösche Seiten werden nicht angezeigt.
     ul
         each page in pages
             li

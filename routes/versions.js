@@ -53,10 +53,41 @@ var loadVersion = function (req, res, next) {
 module.exports = function (app) {
     app.get("/versions", function (req, res) {
         Page.VersionedModel.latest(100, function (err, pages) {
-            res.render("versionedpages", {
-                pages: pages,
-                title: i18n["Page Versions"]
-            });
+
+            // Show latest existing pages
+            var existingPages = [];
+            var checked = 0;
+
+            for (var i=0; i<pages.length; i++) {
+
+                Page.findOne({
+                    title: pages[i].title
+                }, function(err, page) {
+
+                    if (page) {
+
+                        for (var j=0; j<pages.length; j++) {
+                            if (pages[j].title === page.title) {
+                                existingPages.push(pages[j]);
+                            }
+                        }
+                    }
+                    checked++;
+                });
+            }
+
+            var checkIter = setInterval(function() {
+
+                if (checked === pages.length) {
+                    clearInterval(checkIter);
+
+                    res.render("versionedpages", {
+                        pages: existingPages,
+                        title: i18n["Page Versions"]
+                    });
+                }
+            }, 10);
+
         });
     });
 
