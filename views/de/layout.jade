@@ -50,8 +50,14 @@ html
                             li: a#edit-navigation(href="#") Navigation bearbeiten
                             //-li: a(href="/versions") Globale Versions-Historie
 
+
                 form.navbar-search.pull-right(action="/search", method="GET")
                     input.search-query(type="text", placeholder="Suchen...", name="q", id="q")
+
+                ul.nav.pull-right
+                    button.btn.btn-danger.editButton(type="button",data-toggle="button")
+                        i.icon-pencil.icon-white
+                        span.editButtonText Bearbeitungs-Modus
                                             
         .container
             #messages.messages
@@ -75,6 +81,7 @@ html
 
                     block content
 
+        .noEdit
         .scripts
             script(type="text/javascript", src='/vendor/ckeditor/ckeditor.js')
             script(src="/vendor/highlight.js/highlight.pack.js")

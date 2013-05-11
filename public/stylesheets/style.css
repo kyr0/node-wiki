@@ -119,10 +119,6 @@ a {
     max-width:100px;
 }
 
-.content a {
-    cursor: pointer !important;
-}
-
 #site-breadcrumb {
     margin-top: 18px;
     padding: 3px 8px;
@@ -144,6 +140,10 @@ a {
 
 #attachments li {
     line-height: 22px;
+}
+
+#content {
+    cursor: text !important;
 }
 
 a.icon-remove-sign {
@@ -216,9 +216,29 @@ h1.title {
 	cursor: text;
 }
 
+.cke_editable.cke_editable_inline.cke_focus[contentEditable=false]
+{
+	box-shadow: none !important;
+	outline: inherit !important;
+	background: none !important;
+	cursor: default !important;
+}
+
 /* Avoid pre-formatted overflows inline editable. */
 .cke_editable_inline pre
 {
 	white-space: pre-wrap;
 	word-wrap: break-word;
+}
+
+.noEdit {
+    display: none;
+}
+
+.editButton {
+    margin-right: 15px;
+}
+
+.editButtonText {
+    padding-left: 8px;
 }

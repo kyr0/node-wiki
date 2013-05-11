@@ -22,6 +22,7 @@ window.app = {
         '/javascripts/controller/delete-attachment.js',
         '/javascripts/controller/new-page.js',
         '/javascripts/controller/edit-navigation.js',
+        '/javascripts/controller/edit-mode-switch.js',
 
         // External modules auto-loading
         '/javascripts/modules.js'
@@ -179,6 +180,7 @@ window.app = {
             .bind("save", save);
 
         CKEDITOR.inline("content", {
+            toolbarStartupExpanded: false,
             language: locale,
             allowedContent: true,
             protectedSource: [],
@@ -205,6 +207,12 @@ window.app = {
             on: {
                 blur: save
             }
+        });
+
+        CKEDITOR.on('instanceReady', function() {
+
+            // Disable editor by default
+            app.disableContentEditing();
         });
 
         $(".edit")
@@ -534,6 +542,25 @@ window.app = {
                 tagsContent.innerHTML = i18n["add tags as comma separated list"];
             }
         }
+    },
+
+
+    disableContentEditing: function() {
+        app.editor.setReadOnly(true);
+        $('.cke_top').hide();
+
+        $('*[contentEditable]').each(function(index, el) {
+            el.setAttribute('contentEditable', false);
+        });
+    },
+
+    enableContentEditing: function() {
+        app.editor.setReadOnly(false);
+        $('.cke_top').show();
+
+        $('*[contentEditable]').each(function(index, el) {
+            el.setAttribute('contentEditable', true);
+        })
     },
 
     /**

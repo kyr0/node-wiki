@@ -7,7 +7,8 @@
         init: function( editor )
         {
 
-            window.e = editor;
+            app.editor = editor;
+
             var baseText = '';
            CKEDITOR.dialog.add( 'NodeWikiLinkDialog', function (instance)
            {
