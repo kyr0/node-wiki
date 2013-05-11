@@ -20,7 +20,7 @@ var app = express();
 app.disable("x-powered-by");
 
 app.configure(function () {
-    app.set("port", process.env.PORT || 3000);
+    app.set("port", config.internalPort);
     app.set("views", __dirname + "/views/" + config.locale);
     app.set("view engine", "jade");
     app.use(express.favicon());
