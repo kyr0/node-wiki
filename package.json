@@ -3,11 +3,12 @@
     "description": "HTML5 editor powered wiki with drag and drop file upload and easy page creation",
     "version": "0.0.3",
     "scripts": {
-        "start": "nodemon -w lib -w models -w routes app.js"
+        "start": "./start.sh",
+        "stop": "./stop.sh"
     },
     "repository": {
-        "type": "git"
-        , "url": "https://github.com/kyr0/node-wiki"
+        "type": "git",
+        "url": "https://github.com/kyr0/node-wiki"
     },
     "dependencies": {
         "express": "3.2.x",
@@ -19,9 +20,6 @@
         "request" : "2.2.x",
         "mongoose-version": "0.2.x",
         "http-proxy": "0.8.x"
-    },
-    "devDependencies": {
-        "livereload": "*"
     },
     "license" : "MIT"
 }
