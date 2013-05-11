@@ -4,5 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-    // Configuration happens on instance level in app.js!
+	// Define changes to default configuration here. For example:
+	// config.language = 'fr';
+	// config.uiColor = '#AADC6E';
 };

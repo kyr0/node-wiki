@@ -138,11 +138,15 @@ a {
 }
 
 #attachments {
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 20px;
 }
 
-#attachments a.icon-remove-sign {
+#attachments li {
+    line-height: 22px;
+}
+
+a.icon-remove-sign {
     cursor: pointer !important;
 }
 
@@ -150,6 +154,71 @@ a {
     padding-bottom: 10px;
 }
 
+#images li {
+    line-height: 22px;
+}
+
 .versionsDesc {
     padding-bottom: 10px;
+}
+
+.editable, #content, .tags, .title {
+    padding-left: 10px;
+}
+
+.navigationTitle {
+    padding-top: 6px;
+    padding-bottom: 10px;
+}
+
+.imagesTitle {
+    margin-bottom: 5px !important;
+}
+
+.attachmentsTitle {
+    margin-bottom: -10px !important;
+}
+
+.dynamicNavigationTitle {
+
+}
+
+.versionsTitle {
+    margin-bottom: 2px !important;
+}
+
+h1.title {
+    padding-top: 10px;
+}
+
+*[contenteditable="true"] {
+    margin-bottom: 10px;
+}
+
+/**
+ *	CKEditor editables are automatically set with the "cke_editable" class
+ *	plus cke_editable_(inline|themed) depending on the editor type.
+ */
+
+/* Style a bit the inline editables. */
+.cke_editable.cke_editable_inline
+{
+	cursor: text;
+}
+
+/* Once an editable element gets focused, the "cke_focus" class is
+   added to it, so we can style it differently. */
+.cke_editable.cke_editable_inline.cke_focus
+{
+	box-shadow: inset 0px 0px 20px 3px #ddd, inset 0 0 1px #000;
+	outline: none;
+	background: #eee;
+	cursor: text;
+}
+
+/* Avoid pre-formatted overflows inline editable. */
+.cke_editable_inline pre
+{
+	white-space: pre-wrap;
+	word-wrap: break-word;
 }

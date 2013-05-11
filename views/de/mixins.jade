@@ -1,9 +1,9 @@
 mixin renderStaticNavigation(navigationContent)
-    h3 Navigation
+    h3.navigationTitle Navigation
     div#staticNavigation.staticNavigation.well!=navigationContent
 
 mixin renderNavigation(navigationItems)
-    h3 Unterseiten
+    h3.dynamicNavigationTitle Unterseiten
     ul.nav.nav-list
 
         each navigationItem in navigationItems
@@ -11,7 +11,7 @@ mixin renderNavigation(navigationItems)
                 a(href=navigationItem.path)= navigationItem.title
 
 mixin attachments(files)
-    h3 Anhänge
+    h3.attachmentsTitle Anhänge
     ul#attachments.attachments.plain-list
         for file in files
             li 
@@ -25,7 +25,7 @@ mixin fileDropper
 
 
 mixin images(files)
-    h3 Bilder
+    h3.imagesTitle Bilder
     div.imagesDesc Ziehen Sie Bilder und andere Medien einfach in den Editier-Bereich.
     ul#images.images.plain-list
         for file in files
@@ -36,5 +36,5 @@ mixin images(files)
                 a.icon-remove-sign
 
 mixin versionLink(page)
-    h3 Versionen
+    h3.versionsTitle Versionen
     a(href="/versions/#{page._id}") Versionen anzeigen

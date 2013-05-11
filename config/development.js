@@ -29,6 +29,8 @@ module.exports = {
         // Mapping (sub-)domain's onto local instances
         // Requests to $domainName:$port get routed
         // to proper local instances magically.
+        "mywiki.local": "127.0.0.1:3001",
+        "www.mywiki.local": "127.0.0.1:3001",
         "de.mywiki.local": "127.0.0.1:3001",
         "en.mywiki.local": "127.0.0.1:3002"
     }

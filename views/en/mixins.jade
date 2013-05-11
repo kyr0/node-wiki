@@ -1,9 +1,9 @@
 mixin renderStaticNavigation(navigationContent)
-    h3 Navigation
+    h3.navigationTitle Navigation
     div#staticNavigation.staticNavigation.well!=navigationContent
 
 mixin renderNavigation(navigationItems)
-    h3 Sub pages
+    h3.dynamicNavigationTitle Sub pages
     ul.nav.nav-list
 
         each navigationItem in navigationItems
@@ -11,7 +11,7 @@ mixin renderNavigation(navigationItems)
                 a(href=navigationItem.path)= navigationItem.title
 
 mixin attachments(files)
-    h3 Attachments
+    h3.attachmentsTitle Attachments
     ul#attachments.attachments.plain-list
         for file in files
             li 
@@ -24,7 +24,7 @@ mixin fileDropper
     #drop-zone.drop-here drop files here
 
 mixin images(files)
-    h3 Images
+    h3.imagesTitle Images
     div.imagesDesc Drop images and other media in the content editing area.
     ul#images.images.plain-list
         for file in files
@@ -35,5 +35,5 @@ mixin images(files)
                 a.icon-remove-sign
 
 mixin versionLink(page)
-    h3 Versions
+    h3.versionsTitle Versions
     a(href="/versions/#{page._id}") Show versions
