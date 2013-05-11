@@ -1,8 +1,6 @@
 "use strict";
 
 var Page = require("../models/page");
-var config = require("../config/app");
-var i18n = require("../public/locale/" + config.locale);
 
 var next = function (versions, id) {
     for (var i = 0; i < versions.length; i++) {
@@ -51,6 +49,9 @@ var loadVersion = function (req, res, next) {
 };
 
 module.exports = function (app) {
+
+    var i18n = require("../public/locale/" + app.config.locale);
+
     app.get("/versions", function (req, res) {
         Page.VersionedModel.latest(100, function (err, pages) {
 

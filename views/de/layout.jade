@@ -58,9 +58,10 @@ html
             .row
                 .span3
                     block navigation
-                        mixin renderStaticNavigation(staticNavigation)
+                        if (typeof staticNavigationEnabled !== "undefined")
+                            mixin renderStaticNavigation(staticNavigation)
 
-                        if (dynamicNavigation)
+                        if (typeof dynamicNavigationEnabled !== "undefined")
                             mixin renderNavigation(navigation)
                     block pagemeta
 

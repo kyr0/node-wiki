@@ -2,8 +2,6 @@
 
 var Page = require("../models/page");
 var setProps = require("../lib/set-props");
-var config = require("../config/app");
-var i18n = require("../public/locale/" + config.locale);
 
 var setPage = function (req, res) {
     var page = res.locals.page;
@@ -41,6 +39,8 @@ var getImage = function (page) {
 
 module.exports = function (app) {
 
+    var i18n = require("../public/locale/" + app.config.locale);
+
     app.get("/pages", function (req, res) {
         Page.all(function (err, pages) {
             // TODO: err
@@ -56,7 +56,7 @@ module.exports = function (app) {
 
         var password = req.body.password;
 
-        if (password === config.contentManagerPassword) {
+        if (password === app.config.contentManagerPassword) {
 
             res.json({
                 status: 'OK'

@@ -24,6 +24,6 @@ module.exports = {
         "image/jpeg",
         "image/pjpeg",
         "image/png",
-        "image/svg+xml",
+        "image/svg+xml"
     ]
 };

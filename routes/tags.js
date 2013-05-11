@@ -1,10 +1,11 @@
 "use strict";
 
 var Page = require("../models/page");
-var config = require("../config/app");
-var i18n = require("../public/locale/" + config.locale);
 
 module.exports = function (app) {
+
+    var i18n = require("../public/locale/" + app.config.locale);
+
     app.get("/tags", function (req, res) {
         Page.mapReduce({
             map: map,

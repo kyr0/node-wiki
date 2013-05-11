@@ -51,16 +51,17 @@ html
                             //-li: a(href="/versions") Global version history
 
                 form.navbar-search.pull-right(action="/search", method="GET")
-                    input.search-query(type="text", placeholder="Search", name="q", id="q")
+                    input.search-query(type="text", placeholder="Search...", name="q", id="q")
                                             
         .container
             #messages.messages
             .row
                 .span3
                     block navigation
-                        mixin renderStaticNavigation(staticNavigation)
+                        if (typeof staticNavigationEnabled !== "undefined")
+                            mixin renderStaticNavigation(staticNavigation)
 
-                        if (dynamicNavigation)
+                        if (typeof dynamicNavigationEnabled !== "undefined")
                             mixin renderNavigation(navigation)
                     block pagemeta
 
