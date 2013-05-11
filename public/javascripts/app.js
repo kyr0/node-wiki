@@ -28,6 +28,8 @@ window.app = {
         '/javascripts/modules.js'
     ],
 
+    isEditMode: false,
+
     preloadImages: function ($) {
 
         // Load Images before show them - pages/covers
@@ -143,6 +145,9 @@ window.app = {
         };
         var data = getData();
         var save = function () {
+
+            if (!app.isEditMode) return;
+
             var newData = getData();
 
             // check for content to have been changed before saving
@@ -546,6 +551,7 @@ window.app = {
 
 
     disableContentEditing: function() {
+        app.isEditMode = false;
         app.editor.setReadOnly(true);
         $('.cke_top').hide();
 
@@ -555,6 +561,7 @@ window.app = {
     },
 
     enableContentEditing: function() {
+        app.isEditMode = true;
         app.editor.setReadOnly(false);
         $('.cke_top').show();
 
