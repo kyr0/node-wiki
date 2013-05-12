@@ -12,14 +12,14 @@ module.exports = {
         databaseURI: "mongodb://localhost/nodewiki-de",
         locale: "de",
         contentManagerPassword: "admin_de",
-        dynamicNavigation: false,
+        dynamicNavigation: true,
         staticNavigation: true,
         localPort: 3001
     }, {
         databaseURI: "mongodb://localhost/nodewiki-en",
         locale: "en",
         contentManagerPassword: "admin_en",
-        dynamicNavigation: false,
+        dynamicNavigation: true,
         staticNavigation: true,
         localPort: 3002
     }],

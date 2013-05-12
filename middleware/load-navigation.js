@@ -5,9 +5,12 @@ var async = require("async");
 
 var subNodes = function (req, res, cb) {
     Page.subNodes(req.path, function (err, subPages) {
-        if (!err) {res.locals.navigation = subPages; }
+        if (!err && subPages.length > 0 && req.path !== '/') {
+            res.locals.navigation = subPages;
+            res.locals.dynamicNavigationEnabled = true;
+        }
 
-        res.locals.dynamicNavigationEnabled = true;
+
 
         cb(err);
     });

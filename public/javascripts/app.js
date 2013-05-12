@@ -563,8 +563,7 @@ window.app = {
     enableContentEditing: function() {
         app.isEditMode = true;
         app.editor.setReadOnly(false);
-        $('.cke_top').show();
-
+        $('.cke_top')[0].style.display = 'block';
         $('*[contentEditable]').each(function(index, el) {
             el.setAttribute('contentEditable', true);
         })
