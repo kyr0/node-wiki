@@ -216,8 +216,12 @@ window.app = {
 
         CKEDITOR.on('instanceReady', function() {
 
-            // Disable editor by default
-            app.disableContentEditing();
+            // Disable editor by default when not on the navigation page
+            if (document.location.href.indexOf('/navigation') === -1) {
+                app.disableContentEditing(true);
+            } else {
+                app.enableContentEditing(true);
+            }
         });
 
         $(".edit")
@@ -550,7 +554,7 @@ window.app = {
     },
 
 
-    disableContentEditing: function() {
+    disableContentEditing: function(programatically) {
         app.isEditMode = false;
         app.editor.setReadOnly(true);
         $('.cke_top').hide();
@@ -558,15 +562,24 @@ window.app = {
         $('*[contentEditable]').each(function(index, el) {
             el.setAttribute('contentEditable', false);
         });
+
+        if (programatically) {
+            $('.editButton').removeClass('active');
+        }
     },
 
-    enableContentEditing: function() {
+    enableContentEditing: function(programatically) {
         app.isEditMode = true;
         app.editor.setReadOnly(false);
+
         $('.cke_top')[0].style.display = 'block';
         $('*[contentEditable]').each(function(index, el) {
             el.setAttribute('contentEditable', true);
-        })
+        });
+
+        if (programatically) {
+            $('.editButton').addClass('active');
+        }
     },
 
     /**
