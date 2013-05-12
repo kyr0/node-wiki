@@ -217,7 +217,7 @@ window.app = {
         CKEDITOR.on('instanceReady', function() {
 
             // Disable editor by default when not on the navigation page
-            if (document.location.href.indexOf('/navigation') === -1) {
+            if (document.location.href.indexOf('#doEdit') === -1) {
                 app.disableContentEditing(true);
             } else {
                 app.enableContentEditing(true);

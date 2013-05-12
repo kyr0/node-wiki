@@ -5,6 +5,6 @@ jQuery(document).ready(function() {
         e.preventDefault();
         e.stopPropagation();
 
-        document.location.href = "/navigation";
+        document.location.href = "/navigation#doEdit";
     });
 });
