@@ -125,14 +125,6 @@ a {
     margin-bottom: 10px;
 }
 
-#staticNavigation li {
-    line-height: 24px;
-}
-
-#staticNavigation li > a {
-    text-decoration: none;
-}
-
 #attachments {
     margin-top: 15px;
     margin-bottom: 20px;
@@ -177,10 +169,6 @@ a.icon-remove-sign {
 
 .attachmentsTitle {
     margin-bottom: -10px !important;
-}
-
-.dynamicNavigationTitle {
-
 }
 
 .versionsTitle {
@@ -239,6 +227,51 @@ h1.title {
     margin-right: 15px;
 }
 
+.editButton.active span {
+    font-weight: bold !important;
+}
+
 .editButtonText {
     padding-left: 8px;
+}
+
+.editButtonText :hover {
+    font-weight: bold !important;
+}
+
+.nav-list li {
+    list-style: square;
+}
+
+#staticNavigation li {
+    line-height: 24px;
+}
+
+#staticNavigation li > a {
+    text-decoration: none;
+}
+
+#staticNavigation li > a:hover {
+    font-weight: bold !important;
+}
+
+.staticNavigation ul > li {
+    list-style: square;
+}
+
+.staticNavigation ul > li > ul li {
+    list-style: disc;
+}
+
+.staticNavigation a.active {
+    font-weight: bold !important;
+}
+
+.breadcrumb a.active {
+    font-weight: bold !important;
+}
+
+.nav-list > li > a:hover {
+    background-color: transparent !important;
+    font-weight: bold !important;
 }

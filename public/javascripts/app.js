@@ -582,6 +582,20 @@ window.app = {
         }
     },
 
+    highlightActiveStaticNavigationEntry: function($) {
+
+        $('#staticNavigation a').each(function(index, ele) {
+
+            if (ele.getAttribute('href') === document.location.pathname) {
+                $(ele).addClass('active');
+            }
+        });
+    },
+
+    highlightLastBreadcrumbEntry: function($) {
+        $($('#site-breadcrumb.breadcrumb a:last')[0]).addClass('active');
+    },
+
     /**
      * Calls static methods to be executed on app launch
      * when the DOM is ready.
@@ -600,6 +614,8 @@ window.app = {
         this.initSyntaxHighlighting(jQuery);
         this.decodeBreadcrumbComponents(jQuery);
         this.insertTagsPlaceholderWhenEmpty(jQuery);
+        this.highlightActiveStaticNavigationEntry(jQuery);
+        this.highlightLastBreadcrumbEntry(jQuery);
     }
 };
 
