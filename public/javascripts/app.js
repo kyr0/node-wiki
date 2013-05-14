@@ -146,6 +146,8 @@ window.app = {
         var data = getData();
         var save = function () {
 
+            console.log('stipud?', app.isEditMode);
+
             if (!app.isEditMode) return;
 
             var newData = getData();
@@ -179,6 +181,8 @@ window.app = {
                     .error(savingError);
             }
         };
+
+        app.doSave = save;
 
         setInterval(save, 6e4);
         $("body")
@@ -214,13 +218,22 @@ window.app = {
             }
         });
 
+        // Disable editor by default when not on the navigation page
+        var doEnableEditMode = false;
+        if (document.location.href.indexOf('#doEdit') > -1) {
+            doEnableEditMode = true;
+            app.isEditMode = true;
+        } else {
+            app.isEditMode = false;
+        }
+
         CKEDITOR.on('instanceReady', function() {
 
             // Disable editor by default when not on the navigation page
-            if (document.location.href.indexOf('#doEdit') === -1) {
-                app.disableContentEditing(true);
-            } else {
+            if (doEnableEditMode) {
                 app.enableContentEditing(true);
+            } else {
+                app.disableContentEditing(true);
             }
         });
 
@@ -596,6 +609,38 @@ window.app = {
         $($('#site-breadcrumb.breadcrumb a:last')[0]).addClass('active');
     },
 
+    handleNewPageNotSaved: function($) {
+
+        if ($('#content')[0]) {
+
+            var pageTitle = $("h1.title").html().replace('<br>', '');
+
+            if (pageTitle === i18n["click here and enter page title"]) {
+
+                var promtFn = function() {
+
+                    var pageTitle = prompt(i18n["click here and enter page title"]);
+
+                    if (!pageTitle || pageTitle === i18n["click here and enter page title"]) {
+                        promtFn()
+                    } else {
+                        $("h1.title").html(pageTitle);
+                        app.doSave();
+                    }
+                };
+                promtFn();
+
+            }
+        }
+    },
+
+    showEditButtonIfPageIsEditable: function($) {
+
+        if ($('#content')[0]) {
+            $('.editButton').show();
+        }
+    },
+
     /**
      * Calls static methods to be executed on app launch
      * when the DOM is ready.
@@ -616,6 +661,8 @@ window.app = {
         this.insertTagsPlaceholderWhenEmpty(jQuery);
         this.highlightActiveStaticNavigationEntry(jQuery);
         this.highlightLastBreadcrumbEntry(jQuery);
+        this.handleNewPageNotSaved(jQuery);
+        this.showEditButtonIfPageIsEditable(jQuery);
     }
 };
 

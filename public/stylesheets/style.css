@@ -223,7 +223,8 @@ h1.title {
     display: none;
 }
 
-.editButton {
+button.editButton {
+    display: none;
     margin-right: 15px;
 }
 

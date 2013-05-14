@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
                 $.message("error", i18n["Slashes and hashes are not allowed in page names."], 2e3);
                 return;
             }
-            document.location.href = "/" + encodeURIComponent(pagePath);
+            document.location.href = "/" + encodeURIComponent(pagePath) + '#doEdit';
         }
     });
 });
