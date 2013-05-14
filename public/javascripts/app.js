@@ -146,8 +146,6 @@ window.app = {
         var data = getData();
         var save = function () {
 
-            console.log('stipud?', app.isEditMode);
-
             if (!app.isEditMode) return;
 
             var newData = getData();
