@@ -13,7 +13,12 @@ var setPage = function (req, res) {
         page.path = req.path;
     }
 
+    // Set modified by property
     page.modifiedBy = req.cookies.username || "";
+
+    // Set last modified property
+    page.lastModified = new Date();
+
     return page;
 };
 

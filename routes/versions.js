@@ -99,14 +99,28 @@ module.exports = function (app) {
             return res.send(400);
         }
 
-        res.render("versions", {
-            document: Page.VersionedModel.findOne({
-                refId: pageId
-            }),
-            page: Page.findOne({
-                _id: pageId
-            }),
-            title: i18n["Versions"]
+        Page.VersionedModel.findOne({
+            refId: pageId
+        }, function(err, document) {
+
+            // Sort
+            if (document && document.versions) {
+
+                document.versions.sort(function(pageA, pageB) {
+                    return pageA.lastModified < pageB.lastModified;
+                });
+
+                console.log('pages sorted', document.versions);
+
+            }
+
+            res.render("versions", {
+                document: document,
+                page: Page.findOne({
+                    _id: pageId
+                }),
+                title: i18n["Versions"]
+            });
         });
     });
 
@@ -114,6 +128,10 @@ module.exports = function (app) {
         Page.VersionedModel.findOne({
             refId: req.params.pageId
         }).exec(function (err, history) {
+
+
+                console.log('history', history);
+
             if (err) {
                 console.error(err);
                 return res.send(500);
@@ -125,6 +143,8 @@ module.exports = function (app) {
                 return res.send(404);
             }
 
+            console.log('version', version);
+
             res.render("version", {
                 version: version,
                 page: Page.findOne({
@@ -132,7 +152,7 @@ module.exports = function (app) {
                 }),
                 title: i18n["Version for"] + " " + version.title,
                 next: next(history.versions, req.params.version),
-                previous: previous(history.versions, req.params.version),
+                previous: previous(history.versions, req.params.version)
             });
         });
     });
