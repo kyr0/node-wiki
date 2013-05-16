@@ -41,13 +41,23 @@ html
                 ul.nav.pull-right
                     li.dropdown.pull-right
                         a.dropdown-toggle(href="#", data-toggle="dropdown") 
-                            | Aktionen
+                            | Strukturieren...
                             b.caret
-                        ul.dropdown-menu
-                            li: a#new-page(href="#") Neue Seite
-                            li: a#move-page(href="#") Diese Seite verschieben
-                            li: a#delete-page(href="#") Diese Seite löschen
-                            li: a#edit-navigation(href="#") Navigation bearbeiten
+                        ul.dropdown-menu.structuringMenu
+                            li: a#new-page(href="#")
+                                i.icon-file
+                                span Neue Seite erstellen
+                            li.divider
+                            li: a#move-page(href="#")
+                                i.icon-move
+                                span Diese Seite verschieben
+                            li: a#delete-page(href="#")
+                                i.icon-trash
+                                span Diese Seite löschen
+                            li.divider
+                            li: a#edit-navigation(href="#")
+                                i.icon-th-list
+                                span Globale Navigation bearbeiten
                             //-li: a(href="/versions") Globale Versions-Historie
 
 

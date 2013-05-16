@@ -41,13 +41,23 @@ html
                 ul.nav.pull-right
                     li.dropdown.pull-right
                         a.dropdown-toggle(href="#", data-toggle="dropdown") 
-                            | Tasks
+                            | Structure...
                             b.caret
-                        ul.dropdown-menu
-                            li: a#new-page(href="#") New page
-                            li: a#move-page(href="#") Move this page
-                            li: a#delete-page(href="#") Delete this page
-                            li: a#edit-navigation(href="#") Edit navigation
+                        ul.dropdown-menu.structuringMenu
+                            li: a#new-page(href="#")
+                                i.icon-file
+                                span Create new page
+                            li.divider
+                            li: a#move-page(href="#")
+                                i.icon-move
+                                span Move this page
+                            li: a#delete-page(href="#")
+                                i.icon-trash
+                                span Delete this page
+                            li.divider
+                            li: a#edit-navigation(href="#")
+                                i.icon-th-list
+                                span Edit global navigation
                             //-li: a(href="/versions") Global version history
 
                 form.navbar-search.pull-right(action="/search", method="GET")

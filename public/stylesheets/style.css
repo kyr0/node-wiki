@@ -276,3 +276,7 @@ button.editButton {
     background-color: transparent !important;
     font-weight: bold !important;
 }
+
+.structuringMenu li a i {
+    margin-right: 5px;
+}
